@@ -1,0 +1,227 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IBM-Senitment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load Charts and the corechart and barchart packages.
+      google.charts.load('current', {'packages':['corechart','bar','line']});
+
+      // Draw the pie chart and bar chart when Charts is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data_pie = new google.visualization.DataTable();
+        data_pie.addColumn('string', 'Sentiment');
+        data_pie.addColumn('number', 'Percentage');
+        data_pie.addRows([
+          ['Positive', 40],
+          ['Negative', 50],
+          ['Neutral', 10]
+        ]);
+        var data_bar = new google.visualization.DataTable();
+        data_bar.addColumn('string', 'Sentiment');
+        data_bar.addColumn('number', 'Percentage');
+        data_bar.addRows([
+          ['Positive', 40],
+          ['Negative', 50],
+          ['Neutral', 10]
+        ]);
+
+        var data_scatter = google.visualization.arrayToDataTable([
+          ['Date', 'positive','negative'],
+          [2,  12, 10],
+          [5,  5, 9],
+          [8,  14,17],
+          [11, 5, 8],
+          [15, 3, 7],
+          [18, 7, 9],
+          [26, 10, 14]
+        ]);
+
+        var data_stacked = google.visualization.arrayToDataTable([
+        ['Sentiment', 'Joy', 'Fear', 'Sad', 'Supportive',
+         'Angry',  { role: 'annotation' } ],
+        ['February', 10, 24, 20, 32, 18, ''],
+        ['March', 16, 22, 23, 30, 16, ''],
+        ['April', 28, 19, 29, 30, 12, '']
+      ]);
+
+      var data_multiple = google.visualization.arrayToDataTable([
+          ['Days', 'Joy', 'Fear', 'Sad','Supportive','Angry'],
+          ['1-5-Feb', 1000, 400, 200,300,100],
+          ['6-10-Feb', 1170, 460, 250,280,530],
+          ['11-15-Feb', 660, 1120, 300,250,400],
+          ['16-20-Feb', 1000, 400, 200,300,100],
+          ['21-25-Feb', 1170, 460, 250,280,530],
+          ['26-29-Feb', 660, 1120, 300,250,400],
+          ['1-5-Mar', 1000, 400, 200,300,100],
+          ['6-10-Mar', 1170, 460, 250,280,530],
+          ['11-15-Mar', 660, 1120, 300,250,400],
+          ['16-20-Mar', 1000, 400, 200,300,100],
+          ['21-25-Mar', 1170, 460, 250,280,530],
+          ['26-31-Mar', 660, 1120, 300,250,400],
+          ['1-5-Apr', 1000, 400, 200,300,100],
+          ['6-10-Apr', 1170, 460, 250,280,530],
+          ['11-15-Apr', 660, 1120, 300,250,400],
+          ['16-20-Apr', 1000, 400, 200,300,100],
+          ['21-25-Apr', 1170, 460, 250,280,530],
+          ['26-30-Apr', 660, 1120, 300,250,400]
+        ]);
+        var data_line = new google.visualization.DataTable();
+      data_line.addColumn('number', 'Day');
+      data_line.addColumn('number', 'Joy');
+      data_line.addColumn('number', 'Fear');
+      data_line.addColumn('number', 'Sad');
+      data_line.addColumn('number', 'Supportive');
+      data_line.addColumn('number', 'Angry');
+
+      data_line.addRows([
+        [1,  37.8, 80.8, 41.8, 33.6, 56.3],
+        [2,  30.9, 69.5, 32.4, 54.7, 24.6],
+        [3,  25.4,   57, 25.7, 74.6, 24.3],
+        [4,  11.7, 18.8, 10.5, 34.8, 67.2],
+        [5,  11.9, 17.6, 10.4, 51.8, 93.6],
+        [6,   8.8, 13.6,  7.7, 36.9, 23.8],
+        [7,   7.6, 12.3,  9.6, 78.3, 83.6],
+        [8,  12.3, 29.2, 10.6, 11.9, 30.8],
+        [9,  16.9, 42.9, 14.8, 27.5, 35.6],
+        [10, 12.8, 30.9, 11.6, 28.5, 92.7],
+        [11,  5.3,  7.9,  4.7, 26.9, 66.9],
+        [12,  6.6,  8.4,  5.2, 17.6, 52.8],
+        [13,  4.8,  6.3,  3.6, 84.2, 44.9],
+        [14,  4.2,  6.2,  3.4, 76.9, 58.7]
+      ]);
+
+      var line_options = {
+        chart: {
+          title: 'Box Office Earnings in First Two Weeks of Opening',
+          subtitle: 'in millions of dollars (USD)'
+        },
+        width: 1050,
+        height: 300
+      };
+
+      var line_chart = new google.charts.Line(document.getElementById('linechart'));
+      line_chart.draw(data_line, google.charts.Line.convertOptions(line_options));
+
+        var multiple_options = {
+          width: 1470,
+        height: 300,
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          },
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var multiple_chart = new google.charts.Bar(document.getElementById('barmultiple'));
+
+        multiple_chart.draw(data_multiple, google.charts.Bar.convertOptions(multiple_options));
+
+
+      var stacked_options = {
+        width: 475,
+        height: 300,
+        legend: { position: 'top', maxLines: 3 },
+        hAxis:{title:"Sentiment Value"},
+        vAxis:{title:"Month"},
+        bar: { groupWidth: '75%' },
+        isStacked: true
+      };
+
+        var stackedchart = new google.visualization.BarChart(document.getElementById('stacked_bar'));
+        stackedchart.draw(data_stacked, stacked_options);
+        var scatter_options = {
+          title: 'Age vs. Weight comparison',
+          hAxis: {title: 'Date', minValue: 0, maxValue: 30},
+          vAxis: {title: 'Sentiment', minValue: 0, maxValue: 15}, legend: { position: 'top', maxLines: 3 },width:475,
+                       height:300
+        };
+
+        var scatterchart = new google.visualization.ScatterChart(document.getElementById('scatterplot'));
+
+        scatterchart.draw(data_scatter, scatter_options);
+
+        var barchart_options = {title:'Barchart: Percentage of each sentiment shown by public in India',
+                       width:400,
+                       height:300,
+                       legend: 'none'};
+        var barchart = new google.visualization.BarChart(document.getElementById('barchart_div'));
+        barchart.draw(data_bar, barchart_options);
+        var piechart_options = {title:'Pie chart: Percentage of each sentiment shown by public in India',
+                       width:475,
+                       height:300};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_div_'));
+        piechart.draw(data_pie, piechart_options);
+      }
+</script>
+<script>
+  function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+<style>
+  h1{
+    text-align: center;
+  }
+  table, th, td {
+border: 10px solid #ccc;}
+
+/* make the table a 100% wide by default */
+table {
+width: 100%;}
+
+/* if the browser window is at least 800px-s wide: */
+@media screen and (min-width: 800px) {
+  table {
+  width: 90%;}
+}
+
+/* if the browser window is at least 1000px-s wide: */
+@media screen and (min-width:600px) {
+  table {
+  width: 50%;}
+}
+</style>
+</head>
+<body>
+  
+  <div class="topnav" id="myTopnav">
+    <a href="#" class="active">Home</a>
+    <a href="pie.html">More graphs</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+<h1>Sentiment Analysis of Covid-19 Tweets- Visualization Dashboard</h1>
+<table class="columns">
+  <tr>
+    <td><div id="linechart" ></div></td>
+    <td><div id="barchart_div" ></div></td>
+    
+  </tr>
+</table>
+<table>
+  <tr>
+    <td><div id="piechart_div_" ></div></td>
+    <td><div id="stacked_bar" ></div></td>
+    <td><div id="scatterplot" ></div></td>
+  </tr>
+</table>
+<table>
+  <tr><td><div id="barmultiple" ></div></td></tr>
+</table>
+</body>
+</html>
