@@ -2,6 +2,7 @@
   "name": "starter-nodejs",
   "main": "app.js",
   "dependencies": {
-    "express": "~4.17.1"
+    "express": "~4.17.1",
+    "jquery-csv": "^1.0.11"
   }
 }
