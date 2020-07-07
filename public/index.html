@@ -28,6 +28,7 @@
         var piechart_options = {title:'Percentage of each score from Feb to Apr',
                        width:400,
                        height:300,
+                       legend: { position: 'bottom' },
                        is3D:true};
         var piechart = new google.visualization.PieChart(document.getElementById('piechart_div_'));
         piechart.draw(data_pie, piechart_options);
@@ -82,9 +83,9 @@
         var multiple_options1 = {
           width: 725,
         height: 300,
-          chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',},
+          
+            title: 'Month of February',
+            titleTextStyle:{fontSize:20,color:'black',bold:true},
           bars: 'vertical' };// Required for Material Bar Charts.  
         var multiple_chart1 = new google.charts.Bar(document.getElementById('barmultiple1'));
         multiple_chart1.draw(data_multiple1, google.charts.Bar.convertOptions(multiple_options1));
@@ -92,19 +93,19 @@
         var multiple_options2 = {
           width: 725,
         height: 300,
-          chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',},
+          
+            title: 'Month of March',
+            titleTextStyle:{fontSize:20,color:'black',bold:true},
           bars: 'vertical' };// Required for Material Bar Charts.  
         var multiple_chart2 = new google.charts.Bar(document.getElementById('barmultiple2'));
         multiple_chart2.draw(data_multiple2, google.charts.Bar.convertOptions(multiple_options2));
 
         var multiple_options3 = {
-          width: 1470,
+          width: 725,
         height: 300,
-          chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',},
+          
+            title: 'Month of April',
+            titleTextStyle:{fontSize:20,color:'black',bold:true},
           bars: 'vertical' };// Required for Material Bar Charts.  
         var multiple_chart3 = new google.charts.Bar(document.getElementById('barmultiple3'));
         multiple_chart3.draw(data_multiple3, google.charts.Bar.convertOptions(multiple_options3));
@@ -541,11 +542,9 @@ chart_line.draw(data_line, {width: 1050, height: 300,legend: { position: 'top', 
         <td><div id="barmultiple2" ></div></td>
       </tr>
     </table>
-    <table>
-        <tr>
-          <td><div id="barmultiple3" ></div></td>
-      </tr>
-    </div>
+    
+          <center><div id="barmultiple3" ></div></center>
+      
   
 </table>
 <table>
