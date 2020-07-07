@@ -1,14 +1,21 @@
 <html>
   <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>IBM-Senitment Analysis</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+    
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script type="text/javascript">
 
+    
       // Load Charts and the corechart and barchart packages.
       google.charts.load('current', {'packages':['corechart','bar','line']});
 
@@ -62,6 +69,76 @@
           ['21-25-Feb', 88.05208517, 2.819813479, 2.39750132,1.442899877,5.287700158],
           ['26-29-Feb', 84.11121543, 3.579973953, 3.404306872,2.583517582,6.320986159]
         ]);
+       
+
+      // var data_line = new google.visualization.DataTable();
+      // data_line.addColumn('number', 'Day');
+      // data_line.addColumn('number', 'Joy');
+      // data_line.addColumn('number', 'Fear');
+      // data_line.addColumn('number', 'Sad');
+      // data_line.addColumn('number', 'Supportive');
+      // data_line.addColumn('number', 'Angry');
+      
+//       $.ajax({
+//     url: "full.csv",
+//     async: false,
+//     success: function (csvd) {
+//         data = $.csv.toArrays(csvd,{onParseValue: $.csv.hooks.castToScalar});
+//     },
+//     dataType: "text",
+//     complete: function () {
+//         // call a function on complete
+//         data = new google.visualization.arrayToDataTable(data);
+//         var line_options = {
+//           chart: {
+//           title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
+//         },
+//         width: 900,
+//         height: 500,
+//         series: {
+//           // Gives each series an axis name that matches the Y-axis below.
+//           0: {axis: 'Sentiment'},
+//           1: {axis: 'Active'}
+//         },
+//         axes: {
+//           // Adds labels to each axis; they don't have to match the axis names.
+//           y: {
+//             Sentiment: {label: 'Sentiment Scores'},
+//             Active: {label: 'No.of Active cases'}
+//           }
+//         }
+//       };
+       
+//         var line_chart = new google.charts.Line(document.getElementById('linechart'));
+//         line_chart.draw(data,line_options);
+      
+//     }
+// });
+      // data_line.addRows([
+      //   [1,  37.8, 80.8, 41.8, 33.6, 56.3],
+      //   [2,  30.9, 69.5, 32.4, 54.7, 24.6],
+      //   [3,  25.4,   57, 25.7, 74.6, 24.3],
+      //   [4,  11.7, 18.8, 10.5, 34.8, 67.2],
+      //   [5,  11.9, 17.6, 10.4, 51.8, 93.6],
+      //   [6,   8.8, 13.6,  7.7, 36.9, 23.8],
+      //   [7,   7.6, 12.3,  9.6, 78.3, 83.6],
+      //   [8,  12.3, 29.2, 10.6, 11.9, 30.8],
+      //   [9,  16.9, 42.9, 14.8, 27.5, 35.6],
+      //   [10, 12.8, 30.9, 11.6, 28.5, 92.7],
+      //   [11,  5.3,  7.9,  4.7, 26.9, 66.9],
+      //   [12,  6.6,  8.4,  5.2, 17.6, 52.8],
+      //   [13,  4.8,  6.3,  3.6, 84.2, 44.9],
+      //   [14,  4.2,  6.2,  3.4, 76.9, 58.7]
+      // ]);
+
+      // var line_options = {
+      //   chart: {
+      //     title: 'Sentiment analysis prediction',
+      //   },
+      //   width: 1050,
+      //   height: 300
+      // };
+    
         var data_multiple2 = google.visualization.arrayToDataTable([
           ['Days', 'neutral', 'sadness', 'anger', 'joy','fear'],
           ['1-5-Mar', 82.52813406, 3.19654529, 4.290223782,2.819859887,7.165236983],

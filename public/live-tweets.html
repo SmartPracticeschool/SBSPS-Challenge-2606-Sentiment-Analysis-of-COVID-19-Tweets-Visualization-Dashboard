@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+
+    <title>Live Tweets Analysis</title>
+</head>
+<body>
+        <div class="topnav" id="myTopnav">
+                <a href="#" class="active">Home</a>
+                <a href="pie.html">Topics discussed</a>
+                <a href="#">Lockdown Prediction</a>
+                <a href="critical.html">Critical topics analysis</a>
+                <a href="map.html">Covid-19 cases update</a>
+                <a href="live-tweets.html">Live Tweets Sentiment Analysis</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+    <br>            
+    <form id="myForm">
+        <label for="topic">Enter the topic you want to analyze:</label>
+        <input type="text" id="topic" name="topic"><br><br>
+        <button type="submit">Query</button>
+      </form>
+ <script>
+     $('#myForm').on('submit',function(e){
+         e.preventDefault();
+         var q = document.getElementById('topic').value;
+         console.log(q);
+         $.ajax({
+             type: "POST",
+             url : "http://127.0.0.1:5000/liveTweets?hashtag="+q, 
+         }).done(function(o){
+             console.log(o);
+         });
+         
+         });
+     
+ </script>     
+ 
+</body>
+</html>
