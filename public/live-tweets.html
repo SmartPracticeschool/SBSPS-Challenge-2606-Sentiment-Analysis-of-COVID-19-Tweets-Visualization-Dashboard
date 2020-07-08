@@ -37,11 +37,13 @@
          $.ajax({
              type: "POST",
              url : "http://127.0.0.1:5000/liveTweets?hashtag="+q, 
-         }).done(function(o){
-             console.log(o);
-         });
+             success: function (data) {
+                console.log(data.tweets)
+             }
          
          });
+
+        });
      
  </script>     
  

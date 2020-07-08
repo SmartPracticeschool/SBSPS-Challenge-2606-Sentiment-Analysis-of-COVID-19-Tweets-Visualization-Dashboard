@@ -2,6 +2,7 @@ import tweepy
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 import csv
+import json
 app = Flask(__name__)
 CORS(app)
 @app.route('/liveTweets',methods = ['GET','POST'])
@@ -16,9 +17,10 @@ def live_tweets():
      api = tweepy.API(auth)
 
      for tweet in tweepy.Cursor(api.search, q='#'+hashtag, rpp=100).items(MAX_TWEETS):
-         tweets.append(tweet)
+         tweets.append(tweet.text)
 
-     
+     return json.dumps({'tweets':tweets}), 200, {'ContentType':'application/json'} 
+
          
 
 app.run()
