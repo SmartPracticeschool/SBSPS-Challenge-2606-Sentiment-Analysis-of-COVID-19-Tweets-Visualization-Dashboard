@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -11,41 +14,75 @@
 
     <title>Live Tweets Analysis</title>
 </head>
+
 <body>
-        <div class="topnav" id="myTopnav">
-                <a href="#" class="active">Home</a>
-                <a href="pie.html">Topics discussed</a>
-                <a href="#">Lockdown Prediction</a>
-                <a href="critical.html">Critical topics analysis</a>
-                <a href="map.html">Covid-19 cases update</a>
-                <a href="live-tweets.html">Live Tweets Sentiment Analysis</a>
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-    <br>            
+    <div class="topnav" id="myTopnav">
+        <a href="#" class="active">Home</a>
+        <a href="pie.html">Topics discussed</a>
+        <a href="#">Lockdown Prediction</a>
+        <a href="critical.html">Critical topics analysis</a>
+        <a href="map.html">Covid-19 cases update</a>
+        <a href="live-tweets.html">Live Tweets Sentiment Analysis</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <br>
     <form id="myForm">
         <label for="topic">Enter the topic you want to analyze:</label>
         <input type="text" id="topic" name="topic"><br><br>
         <button type="submit">Query</button>
-      </form>
- <script>
-     $('#myForm').on('submit',function(e){
-         e.preventDefault();
-         var q = document.getElementById('topic').value;
-         console.log(q);
-         $.ajax({
-             type: "POST",
-             url : "http://127.0.0.1:5000/liveTweets?hashtag="+q, 
-             success: function (data) {
-                console.log(data.tweets)
-             }
-         
-         });
+    </form>
+    <div id="livebar" style="width: 550px; height: 400px; margin: 0 auto"></div>
+
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart', 'bar', 'line'] });
+
+        $('#myForm').on('submit', function (e) {
+            e.preventDefault();
+            var q = document.getElementById('topic').value;
+            console.log(q);
+            $.ajax({
+                type: "POST",
+                url: "http://127.0.0.1:5000/liveTweets?hashtag=" + q,
+                success: function (response) {
+                    // Draw the pie chart and bar chart when Charts is loaded.
+                    console.log(response);
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                        csvUrl1 = 'http://localhost:3000/livesentiments.csv'
+                        var queryOptions1 = {
+                            csvColumns: ['string', 'number' /* Or whatever the columns in the CSV file are */],
+                            csvHasHeader: true /* This should be false if your CSV file doesn't have a header */
+                        }
+
+                        var query1 = new google.visualization.Query(csvUrl1, queryOptions1);
+
+                        query1.send(handleQueryResponse1);
+
+                    }
+                    function handleQueryResponse1(response1) {
+
+                        if (response1.isError()) {
+                            alert('Error in query: ' + response1.getMessage() + ' ' + response1.getDetailedMessage());
+                            return;
+                        }
+
+                        var data_livebar = response1.getDataTable();
+                        var chart_livebar = new google.visualization.BarChart(document.getElementById('livebar'));
+                        chart_livebar.draw(data_livebar, { width: 725, height: 300, legend: { position: 'top', maxLines: 3 } });
+                    }
+                }
+
+
+
+            });
 
         });
-     
- </script>     
- 
+
+    </script>
+
 </body>
+
 </html>
