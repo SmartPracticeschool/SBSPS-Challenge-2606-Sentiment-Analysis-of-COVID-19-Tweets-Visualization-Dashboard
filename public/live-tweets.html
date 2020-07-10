@@ -34,18 +34,25 @@
         <button type="submit">Query</button>
     </form>
     <div id="livebar" style="width: 550px; height: 400px; margin: 0 auto"></div>
-
+    <div id="loading" style="display:none;">
+        <p><img src="ajax-loader.gif" /> Please Wait</p>
+      </div>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['corechart', 'bar', 'line'] });
 
         $('#myForm').on('submit', function (e) {
             e.preventDefault();
+            $('#livebar').empty();
+            document.getElementById('loading').style.display = "block";
+            
             var q = document.getElementById('topic').value;
             console.log(q);
             $.ajax({
                 type: "POST",
                 url: "http://127.0.0.1:5000/liveTweets?hashtag=" + q,
                 success: function (response) {
+                    document.getElementById('loading').style.display = "none";
+
                     // Draw the pie chart and bar chart when Charts is loaded.
                     console.log(response);
                     google.charts.setOnLoadCallback(drawChart);
