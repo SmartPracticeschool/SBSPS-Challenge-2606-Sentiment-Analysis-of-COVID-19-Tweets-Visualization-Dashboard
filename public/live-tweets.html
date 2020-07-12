@@ -20,7 +20,7 @@
 
 <body>
     <div class="topnav" id="myTopnav">
-        <a href="#" class="active">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="pie.html">Topics discussed</a>
         <a href="#">Lockdown Prediction</a>
         <a href="critical.html">Critical topics analysis</a>
@@ -32,19 +32,15 @@
     </div>
     <br><center>
 <h1>Enter any hashtag to see live tweet analysis of 100 recent tweets </h1>
-    <form id="myForm" style="padding:40px">
+    <form id="myForm" style="padding:30px">
         <label for="topic">Enter the topic you want to analyze:</label>
         <input type="text" id="topic" name="topic"><br><br>
         <button type="submit" style="padding:10px;width:100px;">Query</button>
-    </form></center>
-    <table>
-        <tr>
-    <td><h3>Tweets categorized into Positive, Negative and Neutral</h3><div id="livebar" style="margin: 0 auto"></div></td>
-    <td><h3>Live tweets extracted from Twitter</h3><div id="table" style="margin: 0 auto"></div></td></tr>
-</table>
-<center><table>
-    <tr><td><h3>Word Cloud of most used words</h3><div id="wordcloud"></div></td></tr>
-</table></center>
+    </form>
+    
+    <h3>Tweets categorized into Positive, Negative and Neutral</h3><div id="livebar" style="margin:0 auto;"></div>
+    <h3>Live tweets extracted from Twitter</h3><div id="table" style="margin:0 auto;"></div></center>
+<center><h3>Word Cloud of most used words</h3><div id="wordcloud"></div></center>
     <div id="loading" style="display:none;">
         <p ><img src="ajax-loader.gif" style="position: absolute;top: 50%;left: 50%;margin: -50px 0px 0px -50px;"/></p>
       </div>
@@ -76,7 +72,7 @@
                         type: 'wordcloud',
                         options: {
                             text: response,
-                            maxItems:50,
+                            maxItems:100,
                             aspect:'flow-center',
                             colorType: 'palette',
                             palette: ['#D32F2F', '#5D4037', '#1976D2', '#E53935', '#6D4C41', '#1E88E5', '#F44336', '#795548', '#2196F3', '#EF5350', '#8D6E63', '#42A5F5'],
@@ -106,7 +102,7 @@
                     id: 'wordcloud',
                     data: myConfig,
                     height: 400,
-                    width: '100%'
+                    width: '70%'
                     });
                     google.charts.setOnLoadCallback(drawChart);
 
@@ -141,7 +137,7 @@
 
                         var data_livebar = response1.getDataTable();
                         var chart_livebar = new google.visualization.BarChart(document.getElementById('livebar'));
-                        chart_livebar.draw(data_livebar, { width: 725, height: 400, legend: 'none',bars:'vertical',title:'Count of Positive, Negative & Neutral Tweets' });
+                        chart_livebar.draw(data_livebar, { width: '100%', height: 400, legend: 'none',bars:'vertical',title:'Count of Positive, Negative & Neutral Tweets' });
                     }
                     function handleQueryResponse2(response2) {
 
@@ -152,7 +148,7 @@ if (response2.isError()) {
 
 var data_table = response2.getDataTable();
 var chart_table = new google.visualization.Table(document.getElementById('table'));
-chart_table.draw(data_table, { width: 725, height: 400 });
+chart_table.draw(data_table, { width: '80%', height: 400 });
 }
                 }
 

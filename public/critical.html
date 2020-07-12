@@ -229,7 +229,7 @@ if (response1.isError()) {
 
 var data_line1 = response1.getDataTable();
 var chart_line1 = new google.charts.Line(document.getElementById('linechart1'));
-chart_line1.draw(data_line1, {width: 725, height: 300});
+chart_line1.draw(data_line1, {width: '100%', height: '100%'});
 }
 function handleQueryResponse2(response2) {
 
@@ -240,7 +240,7 @@ if (response2.isError()) {
 
 var data_line2 = response2.getDataTable();
 var chart_line2 = new google.charts.Line(document.getElementById('linechart2'));
-chart_line2.draw(data_line2, {width: 725, height: 300,legend: { position: 'top', maxLines: 3 }});
+chart_line2.draw(data_line2, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
 }
 function handleQueryResponse3(response3) {
 
@@ -251,7 +251,7 @@ if (response3.isError()) {
 
 var data_line3 = response3.getDataTable();
 var chart_line3 = new google.charts.Line(document.getElementById('linechart3'));
-chart_line3.draw(data_line3, {width: 725, height: 300,legend: { position: 'top', maxLines: 3 }});
+chart_line3.draw(data_line3, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
 }
 function handleQueryResponse4(response4) {
 
@@ -262,7 +262,7 @@ if (response4.isError()) {
 
 var data_line4 = response4.getDataTable();
 var chart_line4 = new google.charts.Line(document.getElementById('linechart4'));
-chart_line4.draw(data_line4, {width: 725, height: 300,legend: { position: 'top', maxLines: 3 }});
+chart_line4.draw(data_line4, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
 }
 function handleQueryResponse5(response5) {
 
@@ -273,7 +273,7 @@ if (response5.isError()) {
 
 var data_line5 = response5.getDataTable();
 var chart_line5 = new google.charts.Line(document.getElementById('linechart5'));
-chart_line5.draw(data_line5, {width: 725, height: 300,legend: { position: 'top', maxLines: 3 }});
+chart_line5.draw(data_line5, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
 }
 
 
@@ -357,39 +357,25 @@ chart_score5.draw(data_score5, {title: 'Company Performance',curveType: 'functio
             </a>
         </div>
 <h2>Sentiment Analysis for 5 most Critical Topics</h2>
-        <table>
-            <tr>
-                <td><h3>Workers:</h3><div id="linechart1" ></div></td>
-                <td><h3>Economy:</h3><div id="linechart2" ></div></td>
-            </tr>
-        </table>
-        <table>
-            <tr>
-                <td><h3>Lockdown:</h3><div id="linechart3" ></div></td>
-                <td><h3>Hospitals:</h3><div id="linechart5" ></div></td>
-            </tr>
-        </table>
-        
-            <center><h3>Care fund:</h3><div id="linechart4" ></div></center>
+            <center>
+                <div style="display: inline-block;"class="lc"><h3>Workers:</h3><div id="linechart1" ></div></div>
+                <div style="display: inline-block;"class="lc"><h3>Economy:</h3><div id="linechart2" ></div></div>
+                <div style="display: inline-block;"class="lc"><h3>Lockdown:</h3><div id="linechart3" ></div></div>
+                <div style="display: inline-block;"class="lc"><h3>Hospitals:</h3><div id="linechart5" ></div></div>
+                <div style="display: inline-block;"class="lc"><h3>Care fund:</h3><div id="linechart4" ></div></div>
          
         <br><h2>Count of Positive, Negative and Neutral tweets for each topic and Positivity analysis</h2>
-        <table>
-            <tr>
-                <td><h3>% Count of tweets</h3><div id="donutchart1" ></div></td>
-                <td><h3>Positivity score</h3><div id="curve_chart1"></div></td>
-                <td><h3>% Count of tweets</h3><div id="donutchart2" ></div></td>
-                <td><h3>Positivity score</h3><div id="curve_chart2"></div></td>
-            </tr>
-            <tr>
-                <td><h3>% Count of tweets</h3><div id="donutchart3" ></div></td>
-                <td><h3>Positivity score</h3><div id="curve_chart3"></div></td>
-                <td><h3>% Count of tweets</h3><div id="donutchart4" ></div></td>
-                <td><h3>Positivity score</h3><div id="curve_chart4"></div></td>
-            </tr>
-        </table>
-        <center>
-                <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart5" ></div></div>
-                <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart5" ></div></div>
-              </center>  
+          
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart1" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart1"></div></div>
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart2" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart2"></div></div>
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart3" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart3"></div></div>
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart4" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart4"></div></div>
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart5" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart5" ></div></div>
+          </center>  
     </body>
 </html>

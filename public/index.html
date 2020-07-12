@@ -33,8 +33,8 @@
           ['Neutral', 23.22]
         ]);
         var piechart_options = {title:'Percentage of each score from Feb to Apr',
-                       width:400,
-                       height:300,
+                       width:'100%',
+                       height:'100%',
                        legend: { position: 'bottom' },
                        is3D:true};
         var piechart = new google.visualization.PieChart(document.getElementById('piechart_div_'));
@@ -49,8 +49,8 @@
         ['April', 35.17959214, 15.61047234, 12.65675253, 15.03771044, 21.51547255, '']
       ]);
       var stacked_options = {
-        width: 725,
-        height: 300,
+        width: '100%',
+        height: '100%',
         legend: { position: 'top', maxLines: 3 },
         hAxis:{title:"Sentiment Value"},
         vAxis:{title:"Month"},
@@ -158,8 +158,8 @@
           ['26-30-Apr', 30.70807194, 18.70747886, 12.3749128,16.84365832,21.36587808]
         ]);
         var multiple_options1 = {
-          width: 725,
-        height: 300,
+          width: '100%',
+        height: '100%',
           
             title: 'Month of February',
             titleTextStyle:{fontSize:20,color:'black',bold:true},
@@ -168,8 +168,8 @@
         multiple_chart1.draw(data_multiple1, google.charts.Bar.convertOptions(multiple_options1));
 
         var multiple_options2 = {
-          width: 725,
-        height: 300,
+          width: '100%',
+        height: '100%',
           
             title: 'Month of March',
             titleTextStyle:{fontSize:20,color:'black',bold:true},
@@ -178,8 +178,8 @@
         multiple_chart2.draw(data_multiple2, google.charts.Bar.convertOptions(multiple_options2));
 
         var multiple_options3 = {
-          width: 725,
-        height: 300,
+          width: '100%',
+        height: '100%',
           
             title: 'Month of April',
             titleTextStyle:{fontSize:20,color:'black',bold:true},
@@ -328,8 +328,8 @@ query2.send(handleQueryResponse2);
         ['staysafe', 8173,'color: yellow'],
         ['india', 5905,'color: black']      ]);
       var hashtags_options1 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '1-5-Feb',
@@ -340,8 +340,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart1.draw(data_hashtags1, hashtags_options1);
 
         var hashtags_options2 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '6-10-Feb',
@@ -351,8 +351,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart2.draw(data_hashtags2,hashtags_options2);
 
         var hashtags_options3 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '11-15-Feb',
@@ -362,8 +362,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart3.draw(data_hashtags3, hashtags_options3);
 
         var hashtags_options4 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '16-20-Feb',
@@ -373,8 +373,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart4.draw(data_hashtags4, hashtags_options4);
 
         var hashtags_options5 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '21-25-Feb',
@@ -384,8 +384,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart5.draw(data_hashtags5, hashtags_options5);
 
         var hashtags_options6 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '26-29-Feb',
@@ -394,8 +394,8 @@ query2.send(handleQueryResponse2);
         var hashtags_chart6 = new google.visualization.BarChart(document.getElementById('hashtags_bar6'));
         hashtags_chart6.draw(data_hashtags6,hashtags_options6);
         var hashtags_options7 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '1-5-Mar',
@@ -405,8 +405,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart7.draw(data_hashtags7, hashtags_options7);
 
         var hashtags_options8 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '6-10-Mar',
@@ -416,8 +416,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart8.draw(data_hashtags8, hashtags_options8);
 
         var hashtags_options9 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '11-15-Mar',
@@ -427,8 +427,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart9.draw(data_hashtags9, hashtags_options9);
 
         var hashtags_options10 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '16-20-Mar',
@@ -438,8 +438,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart10.draw(data_hashtags10, hashtags_options10);
 
         var hashtags_options11 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '21-25-Mar',
@@ -449,8 +449,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart11.draw(data_hashtags11, hashtags_options11);
 
         var hashtags_options12 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '26-31-Mar',
@@ -460,8 +460,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart12.draw(data_hashtags12, hashtags_options12);
 
         var hashtags_options13 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '1-5-Apr',
@@ -471,8 +471,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart13.draw(data_hashtags13, hashtags_options13);
 
         var hashtags_options14 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '6-10-Apr',
@@ -482,8 +482,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart14.draw(data_hashtags14, hashtags_options14);
 
         var hashtags_options15 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '11-15-Apr',
@@ -493,8 +493,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart15.draw(data_hashtags15, hashtags_options15);
 
         var hashtags_options16 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '16-20-Apr',
@@ -504,8 +504,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart16.draw(data_hashtags16, hashtags_options16);
 
         var hashtags_options17 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '21-25-Apr',
@@ -515,8 +515,8 @@ query2.send(handleQueryResponse2);
         hashtags_chart17.draw(data_hashtags17, hashtags_options17);
 
         var hashtags_options18 = {
-          width: 475,
-        height: 300,
+          width: '100%',
+        height: '100%',
         legend: 'none',
           
             title: '26-30-Apr',
@@ -545,7 +545,7 @@ if (response1.isError()) {
 
 var data_scatter = response1.getDataTable();
 var chart_scatter = new google.visualization.ScatterChart(document.getElementById('scatterplot'));
-chart_scatter.draw(data_scatter, {width: 725, height: 300,legend: { position: 'top', maxLines: 3 }});
+chart_scatter.draw(data_scatter, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
 }
 function handleQueryResponse2(response2) {
 
@@ -556,7 +556,7 @@ if (response2.isError()) {
 
 var data_line = response2.getDataTable();
 var chart_line = new google.charts.Line(document.getElementById('linechart'));
-chart_line.draw(data_line, {width: 1050, height: 300,legend: { position: 'top', maxLines: 3 }});
+chart_line.draw(data_line, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
 }
 
 </script>
@@ -589,70 +589,61 @@ chart_line.draw(data_line, {width: 1050, height: 300,legend: { position: 'top', 
 </div>
 
 <h1>Sentiment Analysis of Covid-19 Tweets- Visualization Dashboard</h1>
-<div class="col-md-12">
-<table class="columns">
-  <div class="row">
-  <tr>
-    <div class="col-md-6">
-    <td><h3>Analysis of each Sentiment (in %) by Time</h3><div id="linechart" ></div></td></div>
-    <div class="col-md-6">
-    <td><h3>Overall positivity in users</h3><div id="piechart_div_" ></div></td></div>
-  </tr>
-</div>
-</table>
+<div class="row">
 
-<table>
-  <div class="row">
-  <tr>
-    <div class="col-md-6">
-    <td><h3>Monthwise Sentiment plot</h3><div id="stacked_bar" ></div></td></div>
-    <!-- <td><div id="barchart_div" ></div></td> -->
-    <div class="col-md-6">
-    <td><h3>Daily Positivity score in %</h3><div id="scatterplot" ></div></td></div>
-  </tr>
-</div>
-</table>
-<table>
   
-    <div class="col-md-6">
-      <tr><h3>Rise and fall in user sentiments in every 5 days</h3>
-        <td><div id="barmultiple1" ></div></td>
-        <td><div id="barmultiple2" ></div></td>
-      </tr>
-    </table>
+  <center>
+    <div style="display: inline-block;" class="line">
+    <h3>Analysis of each Sentiment (in %) by Time</h3><div id="linechart"></div></div>
+    <div style="display: inline-block;" class="pie">
+    <h3>Overall positivity in users</h3><div id="piechart_div_" ></div></div>
+  
+  
+
+    <div style="display: inline-block;" class="wdth">
+    <h3>Monthwise Sentiment plot</h3><div id="stacked_bar" ></div></div>
+    <!-- <td><div id="barchart_div" ></div></td> -->
+    <div style="display: inline-block;" class="wdth">
+    <h3>Daily Positivity score in %</h3><div id="scatterplot" ></div></div>
+  
+
+  
     
-          <center><div id="barmultiple3" ></div></center>
+      <h3>Rise and fall in user sentiments in every 5 days</h3>
+      <div style="display: inline-block;" class="bm">  
+      <div id="barmultiple1" ></div></div>
+      <div style="display: inline-block;" class="bm"> 
+        <div id="barmultiple2" ></div>
+      </div>
+      <div style="display: inline-block;" class="bm"> <div id="barmultiple3" ></div></div>
       
   
-</table>
-<table>
+
   <br>
-  <tr><h3><b>Top 5 hashtags used in every 5 days</b></h3>
+  <h3><b>Top 5 hashtags used in every 5 days</b></h3>
     <h3>February</h3>
-    <td><div id="hashtags_bar1" ></div></td>
-    <td><div id="hashtags_bar2" ></div></td>
-    <td><div id="hashtags_bar3" ></div></td></tr>
-    <tr><td><div id="hashtags_bar4" ></div></td>
-        <td><div id="hashtags_bar5" ></div></td>
-    <td><div id="hashtags_bar6" ></div></td></tr>
-</table>
-<table>
-    <tr><h3>March</h3><td><div id="hashtags_bar7" ></div></td>
-      <td><div id="hashtags_bar8" ></div></td>
-  <td><div id="hashtags_bar9" ></div></td></tr>
-   <tr><td><div id="hashtags_bar10" ></div></td>
-    <td><div id="hashtags_bar11" ></div></td>
-    <td><div id="hashtags_bar12" ></div></td></tr>
-  </table>
-  <table>  
-  <tr><h3>April</h3><td><div id="hashtags_bar13" ></div></td>
-      <td><div id="hashtags_bar14" ></div></td>
-    <td><div id="hashtags_bar15" ></div></td></tr>
-    <tr> <td><div id="hashtags_bar16" ></div></td>
-   <td><div id="hashtags_bar17" ></div></td>
-    <td><div id="hashtags_bar18" ></div></td></tr>
-  </tr>
-</table>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar1" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar2" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar3" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar4" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar5" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar6" ></div></div>
+
+    <h3>March</h3>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar7" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar8" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar9" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar10" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar11" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar12" ></div></div>
+  
+    <h3>April</h3>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar13" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar14" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar15" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar16" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar17" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar18" ></div></div></center>
 </div>
 </body>
 </html>
