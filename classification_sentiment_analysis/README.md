@@ -1,4 +1,4 @@
-<h4><b>Building the Sentiment Analyser</b></h4>
+<h2><b>Building the Sentiment Analyser</b></h2>
 
 The datasets folder mentioned in the notebooks include the files that were used in both the iterations of Self Training (BERT) 
 The files of the datasets folder mentioned in the notebooks are available at the following Google Drive link: https://drive.google.com/drive/folders/1Ge7aZGWHzyT1jCjsZWo6XcjwwboIXnDg?usp=sharing
@@ -9,7 +9,7 @@ The files of the prediction folder which includes all tweets, cleaned tweets to 
 
 Labelling sentiments to tweets is done in 3 ways:
 
-<b><h5>1. Multiclass emotion classification (anger, fear, joy, sadness, neutral) using BERT and self-training -</b></h5>
+<b><h3>1. Multiclass emotion classification (anger, fear, joy, sadness, neutral) using BERT and self-training -</b></h3>
 Semi-supervised Self Training is applied in 2 iterations.
 Steps are as follows:
 
@@ -34,7 +34,7 @@ step 7. Using trained BERT to label all tweets.
  
  
  
-<b><h5>2. Positive, Negative and Neutral classification - </h5></b>
+<b><h3>2. Positive, Negative and Neutral classification - </h3></b>
 This classification was performed using Vader. The compound score was obtained for individual tweets and the compound scores were converted to labels 0 (Neutral), 1 		(Positive) and -1 (Negative) using the threshold values:
 
 Positive sentiment: compound score >= 0.05
@@ -45,7 +45,7 @@ Negative sentiment: compound score <= -0.05
  
  
  
-<b><h5>3. Positivity Score - </h5></b>
+<b><h3>3. Positivity Score - </h3></b>
 Positivity score is the compound score assigned to individual tweets using Vader. The 		score is calculated for 1 day time period from 1st Feb 2020 to 30th April 2020. The 		positivity score for 1 day is obtained using the formula:
 
 Positivity score = Total score of individual tweets / Count of tweets
