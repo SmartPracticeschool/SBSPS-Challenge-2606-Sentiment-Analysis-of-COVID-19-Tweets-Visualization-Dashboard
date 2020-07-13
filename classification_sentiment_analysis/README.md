@@ -1,4 +1,4 @@
-Building the Sentiment Analyser
+<b>Building the Sentiment Analyser</b>
 
 The datasets folder mentioned in the notebooks include the files that were used in both the iterations of Self Training (BERT) 
 The files of the datasets folder mentioned in the notebooks are available at the following Google Drive link: https://drive.google.com/drive/folders/1Ge7aZGWHzyT1jCjsZWo6XcjwwboIXnDg?usp=sharing
