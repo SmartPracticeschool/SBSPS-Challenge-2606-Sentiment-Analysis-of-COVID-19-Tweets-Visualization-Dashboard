@@ -1,0 +1,10 @@
+Topic 0:take care,address nation,total death,update india,case total,update stayhome,total confirm,doctor nurse,active case,india total
+Topic 1:wear mask,rd may,social distance,confirm case,long usual,take long usual,april pm,jammu kashmir,without mask,care elderly
+Topic 2:test positive,new case,total case,case death,amid pandemic,modi ji,report new,south korea,report new case,hon ble
+Topic 3:till rd,till rd may,year old,fake news,number case,case india,total number,active case,take action,people die
+Topic 4:lockdown lockdown,face mask,th april,india lockdown,live update,save life,lockdown period,medical staff,late update,follow lockdown
+Topic 5:positive case,case report,lockdown india,time india,health organization,new case report,lockdown stayhome,health minister,world health organization,case state
+Topic 6:pm modi,till may,lockdown extend,extend lockdown,prime minister,extend till,lockdown till,fight pandemic,lockdown extend till,narendra modi
+Topic 7:stay home,stayhome staysafe,stay safe,social distancing,home stay,via namo,namo app,via namo app,stay home stay,home stay safe
+Topic 8:test kit,make mask,migrant worker,amid lockdown,social medium,tamil nadu,work home,home make,ppe kit,state government
+Topic 9:death toll,india news,help poor,single source,day lockdown,please take,guideline lockdown,health ministry,day day,family member
