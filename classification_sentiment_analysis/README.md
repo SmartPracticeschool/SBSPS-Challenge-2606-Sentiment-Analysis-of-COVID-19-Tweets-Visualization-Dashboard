@@ -6,6 +6,7 @@ The preprocessor and the trained models of both Self Training iterations are ava
 The files of the prediction folder which includes all tweets, cleaned tweets to label and labelled tweets using the final model are available at the drive link: https://drive.google.com/drive/folders/1vUjS9pI7s9QhNYXhN6X3Z0R1r7gKcQqu?usp=sharing
 
 Labelling sentiments to tweets is done in 3 ways:
+
 1. Multiclass emotion classification (anger, fear, joy, sadness, neutral) using BERT and self-training -
 Semi-supervised Self Training is applied in 2 iterations.
 Steps are as follows:
@@ -29,6 +30,8 @@ step 6. Fine-tuning BERT in 3 iterations to obtain second self-training iteratio
 
 step 7. Using trained BERT to label all tweets.
  
+ 
+ 
 2. Positive, Negative and Neutral classification -
 This classification was performed using Vader. The compound score was obtained for individual tweets and the compound scores were converted to labels 0 (Neutral), 1 		(Positive) and -1 (Negative) using the threshold values:
 
@@ -37,6 +40,8 @@ Positive sentiment: compound score >= 0.05
 Neutral sentiment: (compound score > -0.05) and (compound score < 0.05)
 
 Negative sentiment: compound score <= -0.05
+ 
+ 
  
 3. Positivity Score -
 Positivity score is the compound score assigned to individual tweets using Vader. The 		score is calculated for 1 day time period from 1st Feb 2020 to 30th April 2020. The 		positivity score for 1 day is obtained using the formula:
