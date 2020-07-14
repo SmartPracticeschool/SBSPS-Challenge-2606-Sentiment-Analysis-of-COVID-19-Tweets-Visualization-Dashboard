@@ -1,0 +1,10 @@
+Topic 0:medical supply,report new,outbreak china,india send,south korea,first death,report new case,supply china,medical supply china,send medical
+Topic 1:test positive,cruise ship,live update,quarantine cruise,quarantine cruise ship,chinese government,health commission,case report,two indian,new post
+Topic 2:coronavirusjapan coronavirusgermany,coronavirusgermany coronaviruschina,coronaviruscanada coronavirusfrance,coronavirusjapan coronavirusgermany coronaviruschina,coronavirususa coronaviruscanada coronavirusfrance,coronavirususa coronaviruscanada,coronavirusitalia coronavirususa,coronavirusitalia coronavirususa coronaviruscanada,realtime map,coronavirusgermany coronaviruschina coronavirusitalia
+Topic 3:quarantine facility,itbp quarantine,bring back,official say,people infect,apple warn,health official,itbp quarantine facility,people china,wuhan china
+Topic 4:death toll,due outbreak,china death,toll rise,china death toll,death toll rise,mainland china,time india,hong kong,news china
+Topic 5:ship japan,cruise ship japan,cruise ship,amid outbreak,test positive,damage global,could damage global,china wuhan,outside china,global growth
+Topic 6:death toll,hubei province,hong kong,toll china,death toll china,people die,wuhan china,china hubei,new case,hospital director
+Topic 7:supply chain,global economy,impact outbreak,chinese people,year ago,china fight,dean koontz,communist party,develop vaccine,raw material
+Topic 8:cruise ship,diamond princess,test negative,princess cruise,diamond princess cruise,princess cruise ship,xi jinping,wuhan hospital,could damage,health minister
+Topic 9:new case,confirm case,china report,total number,new death,mainland china,case death,wear mask,china say,case confirm

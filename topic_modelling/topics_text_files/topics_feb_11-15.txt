@@ -1,0 +1,10 @@
+Topic 0:test positive,health minister,indian national,crew member,year old,two indian,china wuhan,china india,first death,close contact
+Topic 1:new case,death toll,hubei province,confirm case,china hubei,china death,report new,new death,china death toll,china hubei province
+Topic 2:letter xi,china praise pm,praise pm,letter xi jinping,jinping assistance,xi jinping assistance,friendship china praise,modi letter,modi letter xi,demonstrates friendship china
+Topic 3:death toll,confirm case,toll china,death toll china,due outbreak,friendship china,official name,medical staff,china outbreak,single day
+Topic 4:live update,world health,xi jinping,world congress,mobile world,mobile world congress,health organization,world health organization,china praise,amid outbreak
+Topic 5:india first,first patient,india first patient,patient stable,cancel due,first patient stable,people die,mwc cancel,late update,say outbreak
+Topic 6:link china,follow link,follow link china,update follow,update follow link,live update follow,bbc news,look like,million people,people china
+Topic 7:cruise ship,hong kong,diamond princess,test negative,supply chain,ship japan,princess cruise,diamond princess cruise,indian crew,japanese coast
+Topic 8:number case,case china,mainland china,new post,real time,total number,toll cross,case worldwide,due fear,many case
+Topic 9:outbreak china,wuhan china,rest world,could infect,around world,threat rest world,threat rest,grave threat rest,discharge hospital,spread china
