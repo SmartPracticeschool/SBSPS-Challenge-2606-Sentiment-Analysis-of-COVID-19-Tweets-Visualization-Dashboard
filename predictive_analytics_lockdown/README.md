@@ -1,3 +1,4 @@
+Correlation was observed between Covid-19 case data and sentiment of people regarding lockdown. People had negative sentiment towards lockdown initially but the sentiment towards lockdown becomes more positive as the cases rise. These observations were considered to train the predictive analytics model.
 
 Gradient Boosting Regression model was used to predict the positivity score (daily) if the 	government decides to extend lockdown.
 
