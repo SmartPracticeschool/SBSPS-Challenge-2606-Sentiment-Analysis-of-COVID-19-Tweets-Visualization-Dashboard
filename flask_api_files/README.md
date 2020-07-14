@@ -10,4 +10,4 @@ API has 2 endpoints:
 
 /liveTweets accepts a POST or a GET request from the web node application along with the hashtags/keywords provided by the user according to the topics on which the user requires analysis. It returns response in JSON format which is then presented on the visualization dashboard. Tweets, Sentiment analysis on the tweets and the word cloud is provided to the user on the dashborad for the topic provided by the user.
 
-The API code and the dependent files are available in this folder.
+The API code (main.py) and the dependent files are available in this folder.
