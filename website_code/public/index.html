@@ -1,0 +1,582 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IBM-Senitment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript">
+
+    
+      // Load Charts and the corechart and barchart packages.
+      google.charts.load('current', {'packages':['corechart','bar','line']});
+
+      // Draw the pie chart and bar chart when Charts is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        //Pie chart
+        var data_pie = new google.visualization.DataTable();
+        data_pie.addColumn('string', 'Sentiment');
+        data_pie.addColumn('number', 'Percentage');
+        data_pie.addRows([
+          ['Positive', 45.83],
+          ['Negative', 30.95],
+          ['Neutral', 23.22]
+        ]);
+        var piechart_options = {title:'Percentage of each score from Feb to Apr',
+                       width:'100%',
+                       height:'100%',
+                       legend: { position: 'bottom' },
+                       is3D:true};
+        var piechart = new google.visualization.PieChart(document.getElementById('piechart_div_'));
+        piechart.draw(data_pie, piechart_options);
+
+        //stacked bar plot
+        var data_stacked = google.visualization.arrayToDataTable([
+        ['Sentiment', 'neutral', 'sadness', 'anger', 'joy',
+         'fear',  { role: 'annotation' } ],
+        ['February', 86.59430044, 3.32120865, 2.904195904, 2.022626378, 5.157668624, ''],
+        ['March', 54.39953403, 9.96433832, 9.170456391, 9.399450023, 17.06622123, ''],
+        ['April', 35.17959214, 15.61047234, 12.65675253, 15.03771044, 21.51547255, '']
+      ]);
+      var stacked_options = {
+        width: '100%',
+        height: '100%',
+        legend: { position: 'top', maxLines: 3 },
+        hAxis:{title:"Sentiment Value"},
+        vAxis:{title:"Month"},
+        bar: { groupWidth: '75%' },
+        isStacked: true};
+        var stackedchart = new google.visualization.BarChart(document.getElementById('stacked_bar'));
+        stackedchart.draw(data_stacked, stacked_options);
+
+      //Multiple bars plot
+      var data_multiple1 = google.visualization.arrayToDataTable([
+          ['Days', 'neutral', 'sadness', 'anger', 'joy','fear'],
+          ['1-5-Feb', 85.15806838, 4.020066436, 3.050640635,2.582875737,5.188348813],
+          ['6-10-Feb', 86.15948038, 3.479132117, 3.157822001,1.81384743,5.389718076],
+          ['11-15-Feb', 88.70678311, 2.596004307, 2.75551302,1.615025721,4.326673845],
+          ['16-20-Feb', 90.09828727, 2.617750097, 2.170105099,1.347800701,3.766056831],
+          ['21-25-Feb', 88.05208517, 2.819813479, 2.39750132,1.442899877,5.287700158],
+          ['26-29-Feb', 84.11121543, 3.579973953, 3.404306872,2.583517582,6.320986159]
+        ]);
+       
+
+    
+        var data_multiple2 = google.visualization.arrayToDataTable([
+          ['Days', 'neutral', 'sadness', 'anger', 'joy','fear'],
+          ['1-5-Mar', 82.52813406, 3.19654529, 4.290223782,2.819859887,7.165236983],
+          ['6-10-Mar', 78.67678546, 4.562972832, 4.555835752,3.582813913,8.621592045],
+          ['11-15-Mar', 66.1481706, 7.006981922, 7.870105953,5.530171459,13.44457007],
+          ['16-20-Mar', 60.09126593, 8.06539831, 9.475140492,6.319441465,16.04875381],
+          ['21-25-Mar', 49.05781121, 10.19492732, 9.954873484,10.64438983,20.14799815],
+          ['26-31-Mar', 44.30250095, 13.15962219, 10.41826888,12.69677574,19.42283223]
+        ]);
+        var data_multiple3 = google.visualization.arrayToDataTable([
+          ['Days', 'neutral', 'sadness', 'anger', 'joy','fear'],
+          ['1-5-Apr', 41.18704956, 12.51231264, 12.73583434,13.54880261,20.01600086],
+          ['6-10-Apr', 37.54084544, 14.35258008, 11.69317583,14.84813384,21.56526481],
+          ['11-15-Apr', 34.89653306, 15.00198138, 12.76011714,14.5042189,22.83714951],
+          ['16-20-Apr', 33.74352991, 16.31874034, 13.62630443,14.54554293,21.76588239],
+          ['21-25-Apr', 32.48500054, 17.04312589, 12.7640355,16.06033513,21.64750294],
+          ['26-30-Apr', 30.70807194, 18.70747886, 12.3749128,16.84365832,21.36587808]
+        ]);
+        var multiple_options1 = {
+          width: '100%',
+        height: '100%',
+          
+            title: 'Month of February',
+            titleTextStyle:{fontSize:20,color:'black',bold:true},
+          bars: 'vertical' };// Required for Material Bar Charts.  
+        var multiple_chart1 = new google.charts.Bar(document.getElementById('barmultiple1'));
+        multiple_chart1.draw(data_multiple1, google.charts.Bar.convertOptions(multiple_options1));
+
+        var multiple_options2 = {
+          width: '100%',
+        height: '100%',
+          
+            title: 'Month of March',
+            titleTextStyle:{fontSize:20,color:'black',bold:true},
+          bars: 'vertical' };// Required for Material Bar Charts.  
+        var multiple_chart2 = new google.charts.Bar(document.getElementById('barmultiple2'));
+        multiple_chart2.draw(data_multiple2, google.charts.Bar.convertOptions(multiple_options2));
+
+        var multiple_options3 = {
+          width: '100%',
+        height: '100%',
+          
+            title: 'Month of April',
+            titleTextStyle:{fontSize:20,color:'black',bold:true},
+          bars: 'vertical' };// Required for Material Bar Charts.  
+        var multiple_chart3 = new google.charts.Bar(document.getElementById('barmultiple3'));
+        multiple_chart3.draw(data_multiple3, google.charts.Bar.convertOptions(multiple_options3));
+
+      //Line graph
+      csvUrl2='daily_sentiment.csv'
+        var queryOptions2 = {
+          
+  csvColumns: ['string', 'number','number','number','number','number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: true /* This should be false if your CSV file doesn't have a header */
+}
+
+var query2 = new google.visualization.Query(csvUrl2, google.charts.Line.convertOptions(queryOptions2));
+
+query2.send(handleQueryResponse2);
+
+      //Hashtags bar plot
+      var data_hashtags1 = google.visualization.arrayToDataTable([
+          ['Hashtags','Count',{role:'style'}],
+        ['nomeat_nocoronavirus', 7217,'color: red'],
+        ['coronavirusoutbreak', 2744,'color: blue'],
+        ['china', 2615,'color: green'],
+        ['wuhan', 2298,'color: yellow'],
+        ['coronavirusindia', 1271,'color: black']
+        ]);
+      var data_hashtags2 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['china', 2036,'color: red'],
+        ['coronavirusoutbreak', 2015,'color: blue'],
+        ['wuhan', 987,'color: green'],
+        ['coronaviruschina', 807,'color: yellow'],
+        ['coronaoutbreak', 546,'color: black']]);
+      var data_hashtags3 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronavirusoutbreak', 2672,'color: red'],
+        ['china', 1819,'color: blue'],
+        ['wuhan', 623,'color: green'],
+        ['coronaviruschina', 572,'color: yellow'],
+        ['india', 225,'color: black']]);
+      var data_hashtags4 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronavirusoutbreak', 1848,'color: red'],
+        ['china', 1597,'color: blue'],
+        ['wuhan', 637,'color: green'],
+        ['coronaviruschina', 549,'color: yellow'],
+        ['diamondprincess', 247,'color: black']   ]);
+      var data_hashtags5 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronavirusoutbreak', 1404,'color: red'],
+        ['china', 1392,'color: blue'],
+        ['iran', 617,'color: green'],
+        ['wuhan', 463,'color: yellow'],
+        ['italy', 333,'color: black']      ]);
+      var data_hashtags6 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronavirusoutbreak', 2229,'color: red'],
+        ['china', 965,'color: blue'],
+        ['coronavirusupdates', 838,'color: green'],
+        ['iran', 656,'color: yellow'],
+        ['india', 322,'color: black']     ]);
+      var data_hashtags7 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronavirusindia', 4871,'color: red'],
+        ['coronavirusoutbreak', 3969,'color: blue'],
+        ['coronaalert', 3417,'color: green'],
+        ['coronaoutbreak', 3060,'color: yellow'],
+        ['coronavirusinindia', 2380,'color: black']     ]);
+      var data_hashtags8 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronavirusoutbreak', 6082,'color: red'],
+        ['coronavirusindia', 2807,'color: blue'],
+        ['coronavirusinindia', 2393,'color: green'],
+        ['india', 1182,'color: yellow'],
+        ['coronaalert', 1100,'color: black']      ]);
+      var data_hashtags9 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronaviruspandemic', 9663,'color: red'],
+        ['coronaoutbreak', 6234,'color: blue'],
+        ['coronavirusindia', 6146,'color: green'],
+        ['coronavirusoutbreak', 6069,'color: yellow'],
+        ['coronavirusupdates', 5350,'color: black']      ]);
+      var data_hashtags10 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronavirusoutbreak', 17015,'color: red'],
+        ['coronavirusindia', 7744,'color: blue'],
+        ['indiafightscorona', 4280,'color: green'],
+        ['coronaviruspandemic', 3770,'color: yellow'],
+        ['covidindia', 3171,'color: black']      ]);
+      var data_hashtags11 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['coronaviruspandemic', 17737,'color: red'],
+        ['lockdown', 16907,'color: blue'],
+        ['indiafightscorona', 15492,'color: green'],
+        ['lockdownnow', 14270,'color: yellow'],
+        ['staysafe', 10611,'color: black']     ]);
+      var data_hashtags12 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['lockdown', 36692,'color: red'],
+        ['coronavirusoutbreak', 21495,'color: blue'],
+        ['coronalockdown', 20737,'color: green'],
+        ['coronaupdate', 19060,'color: yellow'],
+        ['indiafightscorona', 18411,'color: black']      ]);
+      var data_hashtags13 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['lockdown', 24538,'color: red'],
+        ['coronaviruspandemic', 15527,'color: blue'],
+        ['indiafightscorona', 14739,'color: green'],
+        ['covid19pandemic', 12806,'color: yellow'],
+        ['stayhome', 11501,'color: black']]);
+      var data_hashtags14 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['lockdown', 23996,'color: red'],
+        ['stayhome', 14721,'color: blue'],
+        ['staysafe', 12061,'color: green'],
+        ['indiafightscorona', 11480,'color: yellow'],
+        ['coronavirusoutbreak', 9044,'color: black']      ]);
+      var data_hashtags15 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['lockdown', 33314,'color: red'],
+        ['stayhome', 15177,'color: blue'],
+        ['indiafightscorona', 11352,'color: green'],
+        ['staysafe', 11142,'color: yellow'],
+        ['lockdown2', 8031,'color: black']      ]);
+      var data_hashtags16 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['lockdown', 31607,'color: red'],
+        ['stayhome', 13616,'color: blue'],
+        ['indiafightscorona', 12111,'color: green'],
+        ['staysafe', 9218,'color: yellow'],
+        ['india', 7063,'color: black']      ]);
+      var data_hashtags17 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['lockdown', 28187,'color: red'],
+        ['stayhome', 13552,'color: blue'],
+        ['indiafightscorona', 11206,'color: green'],
+        ['staysafe', 10572,'color: yellow'],
+        ['india', 5921,'color: black']      ]);
+      var data_hashtags18 = google.visualization.arrayToDataTable([
+      ['Hashtags','Count',{role:'style'}],
+        ['lockdown', 26599,'color: red'],
+        ['stayhome', 11774,'color: blue'],
+        ['indiafightscorona', 8903,'color: green'],
+        ['staysafe', 8173,'color: yellow'],
+        ['india', 5905,'color: black']      ]);
+      var hashtags_options1 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '1-5-Feb',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart1 = new google.visualization.BarChart(document.getElementById('hashtags_bar1'));
+        
+        hashtags_chart1.draw(data_hashtags1, hashtags_options1);
+
+        var hashtags_options2 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '6-10-Feb',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart2 = new google.visualization.BarChart(document.getElementById('hashtags_bar2'));
+        hashtags_chart2.draw(data_hashtags2,hashtags_options2);
+
+        var hashtags_options3 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '11-15-Feb',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart3 = new google.visualization.BarChart(document.getElementById('hashtags_bar3'));
+        hashtags_chart3.draw(data_hashtags3, hashtags_options3);
+
+        var hashtags_options4 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '16-20-Feb',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart4 = new google.visualization.BarChart(document.getElementById('hashtags_bar4'));
+        hashtags_chart4.draw(data_hashtags4, hashtags_options4);
+
+        var hashtags_options5 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '21-25-Feb',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart5 = new google.visualization.BarChart(document.getElementById('hashtags_bar5'));
+        hashtags_chart5.draw(data_hashtags5, hashtags_options5);
+
+        var hashtags_options6 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '26-29-Feb',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart6 = new google.visualization.BarChart(document.getElementById('hashtags_bar6'));
+        hashtags_chart6.draw(data_hashtags6,hashtags_options6);
+        var hashtags_options7 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '1-5-Mar',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart7 = new google.visualization.BarChart(document.getElementById('hashtags_bar7'));
+        hashtags_chart7.draw(data_hashtags7, hashtags_options7);
+
+        var hashtags_options8 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '6-10-Mar',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart8 = new google.visualization.BarChart(document.getElementById('hashtags_bar8'));
+        hashtags_chart8.draw(data_hashtags8, hashtags_options8);
+
+        var hashtags_options9 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '11-15-Mar',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart9 = new google.visualization.BarChart(document.getElementById('hashtags_bar9'));
+        hashtags_chart9.draw(data_hashtags9, hashtags_options9);
+
+        var hashtags_options10 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '16-20-Mar',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart10 = new google.visualization.BarChart(document.getElementById('hashtags_bar10'));
+        hashtags_chart10.draw(data_hashtags10, hashtags_options10);
+
+        var hashtags_options11 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '21-25-Mar',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart11 = new google.visualization.BarChart(document.getElementById('hashtags_bar11'));
+        hashtags_chart11.draw(data_hashtags11, hashtags_options11);
+
+        var hashtags_options12 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '26-31-Mar',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart12 = new google.visualization.BarChart(document.getElementById('hashtags_bar12'));
+        hashtags_chart12.draw(data_hashtags12, hashtags_options12);
+
+        var hashtags_options13 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '1-5-Apr',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart13 = new google.visualization.BarChart(document.getElementById('hashtags_bar13'));
+        hashtags_chart13.draw(data_hashtags13, hashtags_options13);
+
+        var hashtags_options14 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '6-10-Apr',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart14 = new google.visualization.BarChart(document.getElementById('hashtags_bar14'));
+        hashtags_chart14.draw(data_hashtags14, hashtags_options14);
+
+        var hashtags_options15 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '11-15-Apr',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart15 = new google.visualization.BarChart(document.getElementById('hashtags_bar15'));
+        hashtags_chart15.draw(data_hashtags15, hashtags_options15);
+
+        var hashtags_options16 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '16-20-Apr',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart16 = new google.visualization.BarChart(document.getElementById('hashtags_bar16'));
+        hashtags_chart16.draw(data_hashtags16, hashtags_options16);
+
+        var hashtags_options17 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '21-25-Apr',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart17 = new google.visualization.BarChart(document.getElementById('hashtags_bar17'));
+        hashtags_chart17.draw(data_hashtags17, hashtags_options17);
+
+        var hashtags_options18 = {
+          width: '100%',
+        height: '100%',
+        legend: 'none',
+          
+            title: '26-30-Apr',
+            titleTextStyle:{fontSize:20}
+           };// Required for Material Bar Charts.
+        var hashtags_chart18 = new google.visualization.BarChart(document.getElementById('hashtags_bar18'));
+        hashtags_chart18.draw(data_hashtags18, hashtags_options18);
+
+      csvUrl1='pos_neg_daily.csv'
+        var queryOptions1 = {
+  csvColumns: ['string', 'number','number','number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: true /* This should be false if your CSV file doesn't have a header */
+}
+
+var query1 = new google.visualization.Query(csvUrl1, queryOptions1);
+
+query1.send(handleQueryResponse1);
+
+}
+function handleQueryResponse1(response1) {
+
+if (response1.isError()) {
+  alert('Error in query: ' + response1.getMessage() + ' ' + response1.getDetailedMessage());
+  return;
+}
+
+var data_scatter = response1.getDataTable();
+var chart_scatter = new google.visualization.ScatterChart(document.getElementById('scatterplot'));
+chart_scatter.draw(data_scatter, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
+}
+function handleQueryResponse2(response2) {
+
+if (response2.isError()) {
+  alert('Error in query: ' + response2.getMessage() + ' ' + response2.getDetailedMessage());
+  return;
+}
+
+var data_line = response2.getDataTable();
+var chart_line = new google.charts.Line(document.getElementById('linechart'));
+chart_line.draw(data_line, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
+}
+
+</script>
+<script>
+  function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+<style>
+  
+</style>
+</head>
+<body>
+  
+  <div class="topnav" id="myTopnav">
+    <a href="#" class="active">Home</a>
+    <a href="pie.html">Topics discussed</a>
+    <a href="lockdown-prediction.html">Lockdown Prediction</a>
+    <a href="critical.html">Critical topics analysis</a>
+    <a href="\examples\dashboard\index.html">Covid-19 cases update</a>
+    <a href="live-tweets.html">Live Tweets Sentiment Analysis</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<h1>Sentiment Analysis of Covid-19 Tweets- Visualization Dashboard</h1>
+<div class="row">
+
+  
+  <center>
+    <div style="display: inline-block;" class="line">
+    <h3>Analysis of each Sentiment (in %) by Time</h3><div id="linechart"></div></div>
+    <div style="display: inline-block;" class="pie">
+    <h3>Overall positivity in users</h3><div id="piechart_div_" ></div></div>
+  
+  
+
+    <div style="display: inline-block;" class="wdth">
+    <h3>Monthwise Sentiment plot</h3><div id="stacked_bar" ></div></div>
+    <!-- <td><div id="barchart_div" ></div></td> -->
+    <div style="display: inline-block;" class="wdth">
+    <h3>Daily Positivity score in %</h3><div id="scatterplot" ></div></div>
+  
+
+  
+    
+      <h3>Rise and fall in user sentiments in every 5 days</h3>
+      <div style="display: inline-block;" class="bm">  
+      <div id="barmultiple1" ></div></div>
+      <div style="display: inline-block;" class="bm"> 
+        <div id="barmultiple2" ></div>
+      </div>
+      <div style="display: inline-block;" class="bm"> <div id="barmultiple3" ></div></div>
+      
+  
+
+  <br>
+  <h3><b>Top 5 hashtags used in every 5 days</b></h3>
+    <h3>February</h3>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar1" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar2" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar3" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar4" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar5" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar6" ></div></div>
+
+    <h3>March</h3>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar7" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar8" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar9" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar10" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar11" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar12" ></div></div>
+  
+    <h3>April</h3>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar13" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar14" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar15" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar16" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar17" ></div></div>
+    <div style="display: inline-block;"class="hash"><div id="hashtags_bar18" ></div></div></center>
+</div>
+</body>
+</html>

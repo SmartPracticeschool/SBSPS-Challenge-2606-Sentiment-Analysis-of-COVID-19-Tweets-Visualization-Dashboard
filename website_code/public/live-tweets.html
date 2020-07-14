@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+ 
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script>
+    function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+    <title>Live Tweets Analysis</title>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" >Home</a>
+        <a href="pie.html">Topics discussed</a>
+        <a href="lockdown-prediction.html">Lockdown Prediction</a>
+        <a href="critical.html">Critical topics analysis</a>
+        <a href="\examples\dashboard\index.html">Covid-19 cases update</a>
+        <a href="live-tweets.html" class="active">Live Tweets Sentiment Analysis</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <br><center>
+<h1>Enter any hashtag to see live tweet analysis of 100 recent tweets </h1>
+    <form id="myForm" style="padding:30px">
+        <label for="topic">Enter the topic you want to analyze:</label>
+        <input type="text" id="topic" name="topic"><br><br>
+        <button type="submit" style="padding:10px;width:100px;">Query</button>
+    </form>
+    
+    <h3>Tweets categorized into Positive, Negative and Neutral</h3><div id="bar" style="margin:0 auto;"></div>
+    <h3>Live tweets extracted from Twitter</h3><div id="table" style="margin:0 auto;"></div></center>
+<center><h3>Word Cloud of most used words</h3><div id="wordcloud" style="margin:0 auto;"></div></center>
+    <div id="loading" style="display:none;">
+        <p ><img src="ajax-loader.gif" style="position: absolute;top: 50%;left: 50%;margin: -50px 0px 0px -50px;"/></p>
+      </div>
+      
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart', 'bar', 'line','table'] });
+
+        $('#myForm').on('submit', function (e) {
+            e.preventDefault();
+            $('#bar').empty();
+            $('#table').empty();
+            $('#wordcloud').empty();
+            document.getElementById('loading').style.display = "block";
+            
+            var q = document.getElementById('topic').value;
+            console.log(q);
+            $.ajax({
+                type: "POST",
+                url: "https://sentimentapi.pythonanywhere.com/liveTweets?hashtag=" + q,
+                success: function (response) {
+                    var jsn=response
+                    var sentiment=Object.values(jsn['prediction']['Sentiment']);
+                    var text=Object.values(jsn['prediction']['text']);
+                    var full=new Array();
+                    full.push(['sentiment','text']);
+                    for(var i=0; i<sentiment.length;i++) 
+                    {
+                        var row = [sentiment[i],text[i]]
+                        
+                        full.push(row);
+                    }
+                    console.log(full);
+                    document.getElementById('loading').style.display = "none";
+
+                    // Draw the pie chart and bar chart when Charts is loaded.
+                    console.log(response);
+                    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+                    zingchart.MODULESDIR = 'https://cdn.zingchart.com/modules/';
+ 
+                    var myConfig = {
+                        type: 'wordcloud',
+                        options: {
+                            text: response['prediction']["para"],
+                            maxItems:100,
+                            aspect:'flow-center',
+                            colorType: 'palette',
+                            palette: ['#D32F2F', '#5D4037', '#1976D2', '#E53935', '#6D4C41', '#1E88E5', '#F44336', '#795548', '#2196F3', '#EF5350', '#8D6E63', '#42A5F5'],
+ 
+                            style: {
+                                fontFamily: 'Crete Round',
+                                hoverState: {
+                                backgroundColor: '#D32F2F',
+                                borderRadius: 2,
+                                fontColor: 'white'
+                                },
+                                tooltip: {
+                                text: '%text: %hits',
+                                visible: true,
+                                alpha: 0.9,
+                                backgroundColor: '#1976D2',
+                                borderRadius: 2,
+                                borderColor: 'none',
+                                fontColor: 'white',
+                                fontFamily: 'Georgia',
+                                textAlpha: 1
+                                }
+                            }
+                        },
+                    };
+                    zingchart.render({
+                    id: 'wordcloud',
+                    data: myConfig,
+                    height: 400,
+                    width: '100%'
+                    });
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+                        positive=response['prediction']["positive"]
+                        negative=response['prediction']["negative"]
+                        neutral=response['prediction']["neutral"]
+                        var data_bar = google.visualization.arrayToDataTable([
+         ['Sentiment','counts'],
+          ['Positive',     positive],
+          ['Negative',      negative],
+          ['Neutral',  neutral]
+        ]);
+                        var bar_options = {
+                            width:'100%',
+                            height:400
+                        }
+
+                        var barchart = new google.visualization.BarChart(document.getElementById('bar'));
+        barchart.draw(data_bar, bar_options);
+
+        var data_table = google.visualization.arrayToDataTable(
+            full
+        );
+                        var tableoptions = {
+                            width:'100%',
+                            height:400
+                        }
+
+                        var tablechart = new google.visualization.Table(document.getElementById('table'));
+        tablechart.draw(data_table, tableoptions);
+
+                    }
+
+                }
+
+
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

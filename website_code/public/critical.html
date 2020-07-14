@@ -1,0 +1,381 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript">
+
+      // Load Charts and the corechart and barchart packages.
+      google.charts.load('current', {'packages':['corechart','bar','line']});
+
+      // Draw the pie chart and bar chart when Charts is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+      csvUrl1='workers_emotion.csv'
+        var queryOptions1 = {
+          legend: { position: 'bottom' },
+  csvColumns: ['string', 'number','number','number','number','number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: true /* This should be false if your CSV file doesn't have a header */
+}
+
+var query1 = new google.visualization.Query(csvUrl1, google.charts.Line.convertOptions(queryOptions1));
+
+query1.send(handleQueryResponse1);
+
+csvUrl2='economy_emotion.csv'
+        var queryOptions2 = {
+          
+  csvColumns: ['string', 'number','number','number','number','number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: true /* This should be false if your CSV file doesn't have a header */
+}
+
+var query2 = new google.visualization.Query(csvUrl2, google.charts.Line.convertOptions(queryOptions2));
+
+query2.send(handleQueryResponse2);
+
+csvUrl3='lockdown_emotion.csv'
+        var queryOptions3 = {
+          
+  csvColumns: ['string', 'number','number','number','number','number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: true /* This should be false if your CSV file doesn't have a header */
+}
+
+var query3 = new google.visualization.Query(csvUrl3, google.charts.Line.convertOptions(queryOptions3));
+
+query3.send(handleQueryResponse3);
+
+csvUrl4='carefund_emotion.csv'
+        var queryOptions4 = {
+          
+  csvColumns: ['string', 'number','number','number','number','number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: true /* This should be false if your CSV file doesn't have a header */
+}
+
+var query4 = new google.visualization.Query(csvUrl4, google.charts.Line.convertOptions(queryOptions4));
+
+query4.send(handleQueryResponse4);
+
+csvUrl5='hospitals_emotion.csv'
+        var queryOptions5 = {
+          
+  csvColumns: ['string', 'number','number','number','number','number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: true /* This should be false if your CSV file doesn't have a header */
+}
+
+var query5 = new google.visualization.Query(csvUrl5, google.charts.Line.convertOptions(queryOptions5));
+
+query5.send(handleQueryResponse5);
+
+//donut
+             
+        //var chart1 = new google.visualization.PieChart(document.getElementById('donutchart1'));
+     
+        var data_worker = google.visualization.arrayToDataTable([
+          ['Sentiment', 'Value'],
+          ['Positive',     50.58782745],
+          ['Negative',      35.72785096],
+          ['Neutral',  13.68432159]
+        ]);
+        var options_worker = {
+          title: 'Topic 1: Workers',
+          titleTextStyle:{fontSize:20},
+          pieHole: 0.4,
+          width:350,
+          height:300,
+          legend: { position: 'bottom' },
+          colors:['#005BFF','#6099FF','#9ABEFF'],
+        };
+        var chart_worker = new google.visualization.PieChart(document.getElementById('donutchart1'));
+        chart_worker.draw(data_worker, options_worker);
+
+
+
+        //var chartt1 = new google.visualization.LineChart(document.getElementById('curve_chartt1'));
+
+        csvUrl_line1='workers_score.csv'
+        var queryOptions_line1 = {
+          
+  csvColumns: ['string', 'number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: false /* This should be false if your CSV file doesn't have a header */}
+var query_line1 = new google.visualization.Query(csvUrl_line1, google.charts.Line.convertOptions(queryOptions_line1));
+query_line1.send(handleQueryResponse_line1);
+
+
+var data_economy = google.visualization.arrayToDataTable([
+          ['Sentiment', 'Value'],
+          ['Positive',     72.32783467],
+          ['Negative',      17.06629055],
+          ['Neutral',  10.60587478]
+        ]);
+        var options_economy = {
+          title: 'Topic 2: Economy',
+          titleTextStyle:{fontSize:20},
+          pieHole: 0.4,
+          width:350,
+          height:300,
+          legend: { position: 'bottom' },
+          colors:['#2CC900','#65E541','#8EFE6F'],
+        };
+        var chart_economy = new google.visualization.PieChart(document.getElementById('donutchart2'));
+        chart_economy.draw(data_economy, options_economy);
+
+
+csvUrl_line2='economy_score.csv'
+        var queryOptions_line2 = {
+  csvColumns: ['string', 'number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: false /* This should be false if your CSV file doesn't have a header */}
+var query_line2 = new google.visualization.Query(csvUrl_line2, google.charts.Line.convertOptions(queryOptions_line2));
+query_line2.send(handleQueryResponse_line2);
+
+var data_lockdown = google.visualization.arrayToDataTable([
+          ['Sentiment', 'Value'],
+          ['Positive',     52.33172428],
+          ['Negative',      24.77659518],
+          ['Neutral',  22.89168053]
+        ]);
+        var options_lockdown = {
+          title: 'Topic 3: Lockdown',
+          titleTextStyle:{fontSize:20},
+          pieHole: 0.4,
+          width:350,
+          height:300,
+          legend: { position: 'bottom' },
+          colors:['#FF0000','#FF6868','#FEADAD'],
+        };
+        var chart_lockdown = new google.visualization.PieChart(document.getElementById('donutchart3'));
+        chart_lockdown.draw(data_lockdown, options_lockdown);
+
+
+        csvUrl_line3='lockdown_score.csv'
+        var queryOptions_line3 = {
+  csvColumns: ['string', 'number'/* Or whatever the columns in the CSV file are */],
+  csvHasHeader: false /* This should be false if your CSV file doesn't have a header */}
+var query_line3 = new google.visualization.Query(csvUrl_line3, google.charts.Line.convertOptions(queryOptions_line3));
+query_line3.send(handleQueryResponse_line3);
+
+var data_hospital = google.visualization.arrayToDataTable([
+          ['Sentiment', 'Value'],
+          ['Positive',     44.50991173],
+          ['Negative',      36.85395429],
+          ['Neutral',  18.63613398]
+        ]);
+        var options_hospital = {
+          title: 'Topic 4: Hospitals',
+          titleTextStyle:{fontSize:20},
+          pieHole: 0.4,
+          width:350,
+          height:300,
+          legend: { position: 'bottom' },
+          colors:['#791EB0','#B05CE3','#D38BFF'],
+        };
+        var chart_hospital = new google.visualization.PieChart(document.getElementById('donutchart4'));
+        chart_hospital.draw(data_hospital, options_hospital);
+
+
+        csvUrl_line4='hospital_score.csv'
+        var queryOptions_line4 = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          width:350,
+          height:300,
+  csvColumns: ['string', 'number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: false /* This should be false if your CSV file doesn't have a header */}
+var query_line4 = new google.visualization.Query(csvUrl_line4, google.charts.Line.convertOptions(queryOptions_line4));
+query_line4.send(handleQueryResponse_line4);
+
+var data_carefund = google.visualization.arrayToDataTable([
+          ['Sentiment', 'Value'],
+          ['Positive',     72.32783467],
+          ['Negative',      17.06629055],
+          ['Neutral',  10.60587478]
+        ]);
+        var options_carefund = {
+          title: 'Topic 5: Carefund',
+          titleTextStyle:{fontSize:20},
+          pieHole: 0.4,
+          width:350,
+          height:300,
+          legend: { position: 'bottom' },
+          colors:['#1B9ECC','#3CC3F2','#58D4FF'],
+        };
+        var chart_carefund = new google.visualization.PieChart(document.getElementById('donutchart5'));
+        chart_carefund.draw(data_carefund, options_carefund);
+
+
+
+        csvUrl_line5='carefund_score.csv'
+        var queryOptions_line5 = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          width:350,
+          height:300,
+  csvColumns: ['string', 'number' /* Or whatever the columns in the CSV file are */],
+  csvHasHeader: false /* This should be false if your CSV file doesn't have a header */}
+var query_line5 = new google.visualization.Query(csvUrl_line5, google.charts.Line.convertOptions(queryOptions_line5));
+query_line5.send(handleQueryResponse_line5);
+      }
+function handleQueryResponse1(response1) {
+
+if (response1.isError()) {
+  alert('Error in query: ' + response1.getMessage() + ' ' + response1.getDetailedMessage());
+  return;
+}
+
+var data_line1 = response1.getDataTable();
+var chart_line1 = new google.charts.Line(document.getElementById('linechart1'));
+chart_line1.draw(data_line1, {width: '100%', height: '100%'});
+}
+function handleQueryResponse2(response2) {
+
+if (response2.isError()) {
+  alert('Error in query: ' + response2.getMessage() + ' ' + response2.getDetailedMessage());
+  return;
+}
+
+var data_line2 = response2.getDataTable();
+var chart_line2 = new google.charts.Line(document.getElementById('linechart2'));
+chart_line2.draw(data_line2, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
+}
+function handleQueryResponse3(response3) {
+
+if (response3.isError()) {
+  alert('Error in query: ' + response3.getMessage() + ' ' + response3.getDetailedMessage());
+  return;
+}
+
+var data_line3 = response3.getDataTable();
+var chart_line3 = new google.charts.Line(document.getElementById('linechart3'));
+chart_line3.draw(data_line3, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
+}
+function handleQueryResponse4(response4) {
+
+if (response4.isError()) {
+  alert('Error in query: ' + response4.getMessage() + ' ' + response4.getDetailedMessage());
+  return;
+}
+
+var data_line4 = response4.getDataTable();
+var chart_line4 = new google.charts.Line(document.getElementById('linechart4'));
+chart_line4.draw(data_line4, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
+}
+function handleQueryResponse5(response5) {
+
+if (response5.isError()) {
+  alert('Error in query: ' + response5.getMessage() + ' ' + response5.getDetailedMessage());
+  return;
+}
+
+var data_line5 = response5.getDataTable();
+var chart_line5 = new google.charts.Line(document.getElementById('linechart5'));
+chart_line5.draw(data_line5, {width: '100%', height: '100%',legend: { position: 'top', maxLines: 3 }});
+}
+
+
+function handleQueryResponse_line1(response_line1) {
+
+if (response_line1.isError()) {
+  alert('Error in query: ' + response_line1.getMessage() + ' ' + response_line1.getDetailedMessage());
+  return;
+}
+
+var data_score1 = response_line1.getDataTable();
+var chart_score1 = new google.charts.Line(document.getElementById('curve_chart1'));
+chart_score1.draw(data_score1, {title: 'Company Performance',curveType: 'function',colors:'#005BFF',width:350,height:300,legend: { position: 'top', maxLines: 3 }});
+}
+function handleQueryResponse_line2(response_line2) {
+
+if (response_line2.isError()) {
+  alert('Error in query: ' + response_line2.getMessage() + ' ' + response_line2.getDetailedMessage());
+  return;
+}
+
+var data_score2 = response_line2.getDataTable();
+var chart_score2 = new google.charts.Line(document.getElementById('curve_chart2'));
+chart_score2.draw(data_score2, {title: 'Company Performance',curveType: 'function',colors:'#2CC900',width:350,height:300,legend: { position: 'top', maxLines: 3 }});
+}
+function handleQueryResponse_line3(response_line3) {
+
+if (response_line3.isError()) {
+  alert('Error in query: ' + response_line3.getMessage() + ' ' + response_line3.getDetailedMessage());
+  return;
+}
+
+var data_score3 = response_line3.getDataTable();
+var chart_score3 = new google.charts.Line(document.getElementById('curve_chart3'));
+chart_score3.draw(data_score3, {title: 'Company Performance',curveType: 'function',width:350,height:300,colors:'#FF0000',legend: { position: 'top', maxLines: 3 }});
+}
+function handleQueryResponse_line4(response_line4) {
+
+if (response_line4.isError()) {
+  alert('Error in query: ' + response_line4.getMessage() + ' ' + response_line4.getDetailedMessage());
+  return;
+}
+
+var data_score4 = response_line4.getDataTable();
+var chart_score4 = new google.charts.Line(document.getElementById('curve_chart4'));
+chart_score4.draw(data_score4, {title: 'Company Performance',curveType: 'function',width:350,height:300,colors:'#791EB0',legend: { position: 'top', maxLines: 3 }});
+}
+function handleQueryResponse_line5(response_line5) {
+
+if (response_line5.isError()) {
+  alert('Error in query: ' + response_line5.getMessage() + ' ' + response_line5.getDetailedMessage());
+  return;
+}
+
+var data_score5 = response_line5.getDataTable();
+var chart_score5 = new google.charts.Line(document.getElementById('curve_chart5'));
+chart_score5.draw(data_score5, {title: 'Company Performance',curveType: 'function',width:350,height:300,colors:'#1B9ECC',legend: { position: 'top', maxLines: 3 }});
+}
+    </script>
+<script>
+  function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+    </head>
+    <body>
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" >Home</a>
+            <a href="pie.html">Topics discussed</a>
+            <a href="lockdown-prediction.html">Lockdown Prediction</a>
+            <a href="#" class="active">Critical topics analysis</a>
+            <a href="\examples\dashboard\index.html">Covid-19 cases update</a>
+            <a href="live-tweets.html">Live Tweets Sentiment Analysis</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+<h2>Sentiment Analysis for 5 most Critical Topics</h2>
+            <center>
+                <div style="display: inline-block;"class="lc"><h3>Workers:</h3><div id="linechart1" ></div></div>
+                <div style="display: inline-block;"class="lc"><h3>Economy:</h3><div id="linechart2" ></div></div>
+                <div style="display: inline-block;"class="lc"><h3>Lockdown:</h3><div id="linechart3" ></div></div>
+                <div style="display: inline-block;"class="lc"><h3>Hospitals:</h3><div id="linechart5" ></div></div>
+                <div style="display: inline-block;"class="lc"><h3>Care fund:</h3><div id="linechart4" ></div></div>
+         
+        <br><h2>Count of Positive, Negative and Neutral tweets for each topic and Positivity analysis</h2>
+          
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart1" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart1"></div></div>
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart2" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart2"></div></div>
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart3" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart3"></div></div>
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart4" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart4"></div></div>
+            <div style="display: inline-block;"><h3>% Count of tweets</h3><div id="donutchart5" ></div></div>
+            <div style="display: inline-block;"><h3>Positivity score</h3><div id="curve_chart5" ></div></div>
+          </center>  
+    </body>
+</html>

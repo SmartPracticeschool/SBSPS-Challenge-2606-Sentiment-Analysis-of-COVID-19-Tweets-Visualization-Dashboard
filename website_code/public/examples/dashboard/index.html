@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>IBM-Sentiment Analysis</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- amCharts includes -->
+    <script src="../../deps/amcharts4/core.js"></script>
+    <script src="../../deps/amcharts4/charts.js"></script>
+    <script src="../../deps/amcharts4/maps.js"></script>
+    
+    <script src="../../deps/amcharts4/themes/dark.js"></script>
+    <script src="../../deps/amcharts4/themes/animated.js"></script>
+
+    <script src="../../deps/amcharts4-geodata/worldLow.js"></script>
+    <script src="../../deps/amcharts4-geodata/data/countries2.js"></script>
+
+    <!-- DataTables includes -->
+    <script src="../../deps/jquery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" media="all" href="../../deps/datatables/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" media="all" href="../../deps/datatables/css/select.dataTables.min.css" />
+    <script src="../../deps/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../../deps/datatables/js/dataTables.select.min.js"></script>
+
+    <!-- Data  -->
+    <script src="../../data/js/world_timeline.js"></script>
+    <script src="../../data/js/total_timeline.js"></script>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" media="all" href="dark.css" />
+
+    <!-- Main app -->
+    <script src="app.js"></script>
+    <script>
+          function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+        </script>
+  </head>
+  <body>
+      <div class="topnav" id="myTopnav">
+        <a href="../../index.html">Home</a>
+        <a href="../../pie.html">Topics discussed</a>
+        <a href="../../lockdown-prediction.html">Lockdown Prediction</a>
+        <a href="../../critical.html">Critical topics analysis</a>
+        <a href="#"  class="active">Covid-19 cases update</a>
+        <a href="../../live-tweets.html">Live Tweets Sentiment Analysis</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div class="flexbox">
+      <div id="chartdiv"></div>
+      <div id="list">
+        <table id="areas" class="compact hover order-column row-border">
+          <thead>
+            <tr>
+              <th>Country/State</th>
+              <th>Confirmed</th>
+              <th>Deaths</th>
+              <th>Recovered</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
