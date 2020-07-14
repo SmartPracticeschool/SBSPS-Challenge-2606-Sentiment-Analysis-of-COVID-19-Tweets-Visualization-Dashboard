@@ -1,4 +1,4 @@
-The tweets related to the critical topics like hospitals, workers, economy, PM Relief Fund and lockdown are filtered using the following keywords:
+<b>The tweets related to the critical topics like hospitals, workers, economy, PM Relief Fund and lockdown are filtered using the following keywords:</b>
 
 
 Hospitals - ['hospital','bed','ventilator']
@@ -11,4 +11,4 @@ Economy - ['economy','economycollapse','economy collapse','financialcrisis','fin
 
 Workers - ['worker','migrant','labourer','job']
 
-These filtered tweets are then labelled using sentiment analyser and the visualisations are plotted for 5 emotions fear, anger, joy, sadness, neutral; positive, negative, neutral and the positivity score graphs.
+<b>These filtered tweets are then labelled using sentiment analyser and the visualisations are plotted for 5 emotions fear, anger, joy, sadness, neutral; positive, negative, neutral and the positivity score graphs.</b>
