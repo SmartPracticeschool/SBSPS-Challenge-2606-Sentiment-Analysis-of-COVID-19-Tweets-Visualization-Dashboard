@@ -1,6 +1,9 @@
 <b>Extraction of Tweet IDs and Geodata:</b>
 
-Geo data is downloaded from https://crisisnlp.qcri.org/covid19.
+Data is obtained from GeoCoV19: A Dataset of Hundreds of Millions of Multilingual COVID-19 Tweets with Location Information https://crisisnlp.qcri.org/covid19
+
+Citation: Umair Qazi, Muhammad Imran, Ferda Ofli. GeoCoV19: A Dataset of Hundreds of Millions of Multilingual COVID-19 Tweets with Location Information. ACM SIGSPATIAL Special, May 2020. doi: 10.1145/3404111.3404114
+
 The data consists of only Tweet IDs and the geolocation of tweets as per the Twitter's content redistribution policy and hence the tweet IDs are hydrated in the further steps to obtain the full text of tweets.
 Keywords and Hashtags included can be fount at: https://crisisnlp.qcri.org/covid_data/COVID19_AIDR_Keywords.zip
 
