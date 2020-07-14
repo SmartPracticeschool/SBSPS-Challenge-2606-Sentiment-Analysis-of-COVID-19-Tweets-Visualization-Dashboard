@@ -1,4 +1,4 @@
-date,sentiment_score,Confirmed,Active,Death,Recovered
+date,positivity_score,Confirmed,Active,Death,Recovered
 01-02-2020,0.010094444,0,0,0,0
 02-02-2020,-0.214867857,1,1,0,0
 03-02-2020,-0.087545946,1,1,0,0
