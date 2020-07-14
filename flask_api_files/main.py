@@ -176,7 +176,7 @@ def lockdownPrediction():
         output['death']=cases1['death']
         output['recovered']=cases1['recovered']
         output['sentiment_date']=fd
-        output['sentiment_score']=y
+        output['positivity_score']=y
 
 
         output=output.reset_index(drop=True)
@@ -194,7 +194,7 @@ def lockdownPrediction():
         final_dict['death']=list(final_pd['death'].astype('int64'))
         final_dict['recovered']=list(final_pd['recovered'].astype('int64'))
         final_dict['sentiment_date']=list(final_pd['sentiment_date'])
-        final_dict['sentiment_score']=list(final_pd['sentiment_score'].astype('float'))
+        final_dict['positivity_score']=list(final_pd['positivity_score'].astype('float'))
 
         return jsonify({'prediction': final_dict})
 if __name__ == '__main__':
